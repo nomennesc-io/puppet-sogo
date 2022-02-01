@@ -35,17 +35,17 @@
 
   <%-
     $fields = [
-      SOGoDraftsFolderName,
-      SOGoSentFolderName,
-      SOGoTrashFolderName,
-      SOGoIMAPServer,
-      SOGoSieveServer,
-      SOGoSMTPServer,
-      SOGoMailDomain,
-      SOGoMailingMechanism,
-      SOGoForceExternalLoginWithEmail,
-      SOGoMailSpoolPath,
-      NGImap4ConnectionStringSeparator,
+      'SOGoDraftsFolderName',
+      'SOGoSentFolderName',
+      'SOGoTrashFolderName',
+      'SOGoIMAPServer',
+      'SOGoSieveServer',
+      'SOGoSMTPServer',
+      'SOGoMailDomain',
+      'SOGoMailingMechanism',
+      'SOGoForceExternalLoginWithEmail',
+      'SOGoMailSpoolPath',
+      'NGImap4ConnectionStringSeparator',
     ]
   -%>
   <%- $fields.each |$key| { -%>

@@ -5,6 +5,7 @@
 # @param login_module Module to show after login
 # @param password_change_enabled Allow or not users to change their passwords from SOGo
 # @param user_sources LDAP and/or SQL sources used for authentication and global address books
+# @param mail_source Mail server configuration
 # @param profile_url Database URL so that SOGo can retrieve user profiles
 # @param folder_info_url Database URL so that SOGo can retrieve the location of user folders
 # @param sessions_folder_url Database URL so that SOGo can store and retrieve secured user sessions information
