@@ -33,6 +33,47 @@
   //SOGoMailSpoolPath = /var/spool/sogo;
   //NGImap4ConnectionStringSeparator = "/";
 
+<% unless $sogo::mail_source == false  { -%>
+  /* Mail */
+  <%-
+    $fields = [
+      SOGoDraftsFolderName,
+      SOGoSentFolderName,
+      SOGoTrashFolderName,
+      SOGoIMAPServer,
+      SOGoSieveServer,
+      SOGoSMTPServer,
+      SOGoMailDomain,
+      SOGoMailingMechanism,
+      SOGoForceExternalLoginWithEmail,
+      SOGoMailSpoolPath,
+      NGImap4ConnectionStringSeparator,
+    ]
+  -%>
+  <%- $fields.each |$key| { -%>
+    <%- $value = $sogo::mail_source[$key] -%>
+    <%-
+      case $value {
+        String: {
+          if $value =~ /[ ,;=]/ {
+	        # FIXME: Values with double-quotes will not like this
+            $sogo_value = "\"${value}\""
+          } else {
+            $sogo_value = $value
+          }
+          $skip = false
+        }
+        default: {
+          $skip = true
+        }
+      }
+    -%>
+    <%- unless $skip { -%>
+  <%= $key %> = <%= $sogo_value %>;
+    <%- } -%>
+  <%- } -%>
+<% } -%>
+
   /* Notifications */
   //SOGoAppointmentSendEMailNotifications = NO;
   //SOGoACLsSendEMailNotifications = NO;
