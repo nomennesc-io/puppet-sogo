@@ -35,7 +35,7 @@
 
   <%-
     $fields = [
-      'SOGoDraftsFolderName',
+      'drafts_foldername',
       'SOGoSentFolderName',
       'SOGoTrashFolderName',
       'SOGoIMAPServer',
