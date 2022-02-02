@@ -1,7 +1,7 @@
 # @summary Manage a SOGo mail source
 type Sogo::Mailsource = Struct[
   {
-    'SOGoDraftsFolderName'                       => Optional[String],
+    SOGoDraftsFolderName                       => Optional[String],
     Optional['SOGoSentFolderName']               => String,
     Optional['SOGoTrashFolderName']              => String,
     Optional['SOGoIMAPServer']                   => String,
