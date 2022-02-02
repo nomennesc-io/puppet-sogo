@@ -33,23 +33,7 @@
   //SOGoMailSpoolPath = /var/spool/sogo;
   //NGImap4ConnectionStringSeparator = "/";
 
-  <%-
-    $fields = [
-      'SOGoDraftsFolderName',
-      'SOGoSentFolderName',
-      'SOGoTrashFolderName',
-      'SOGoIMAPServer',
-      'SOGoSieveServer',
-      'SOGoSMTPServer',
-      'SOGoMailDomain',
-      'SOGoMailingMechanism',
-      'SOGoForceExternalLoginWithEmail',
-      'SOGoMailSpoolPath',
-      'NGImap4ConnectionStringSeparator',
-    ]
-  -%>
-  <%- $fields.each |$key| { -%>
-    <%- $value = $sogo::mail_source[$key] -%>
+  <%- $sogo::extra_config.each |$key, $value| { -%>
     <%-
       case $value {
         String: {
